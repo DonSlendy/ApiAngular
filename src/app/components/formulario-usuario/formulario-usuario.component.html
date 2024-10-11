@@ -1,0 +1,64 @@
+<app-navbar-component></app-navbar-component>
+
+<div class="p-field p-col-12 p-md-3">
+    <h1>Formulario para {{mensaje}} usuario</h1>
+    <p-messages></p-messages>
+</div>
+<div class="p-fluid p-grid">
+
+    <form [formGroup]="contactForm">
+        <input type="hidden" id="inputtext" pInputText name="id" id="id" formControlName="id" [readOnly]="true" />
+
+        <div class="p-field p-col-12 p-md-3">
+            <span class="p-float-label">
+                <input type="text" id="firstname" pInputText name="firstname" formControlName="firstname" />
+                <label for="firstname">Ingresa el nombre</label>
+            </span>
+            <div *ngIf="getErrorMessage('firstname')" class="alert alert-danger">
+                {{ getErrorMessage('firstname') }}
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-3">
+            <span class="p-float-label">
+                <input type="text" id="lastName" pInputText name="lastName" formControlName="lastName" />
+                <label for="firstname">Ingresa el apellido</label>
+            </span>
+            <div *ngIf="getErrorMessage('lastName')" class="alert alert-danger">
+                {{ getErrorMessage('lastName') }}
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-3">
+            <span class="p-float-label">
+                <input type="password" id="password" pInputText name="password" formControlName="password" />
+                <label for="password">Escriba una contraseña</label>
+            </span>
+            
+        </div>
+        <div class="p-field p-col-12 p-md-3">
+            <span class="p-float-label">
+                <input type="text" id="email" pInputText name="email" formControlName="email" />
+                <label for="email">Ingresa el correo electrónico</label>
+            </span>
+            <div *ngIf="getErrorMessage('email')" class="alert alert-danger">
+                {{getErrorMessage('email')}}
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-3">
+            <span class="p-float-label">
+                <input type="text" id="rol" pInputText name="rol" formControlName="rol" />
+                <label for="rol">Seleccione el rol del usuario</label>
+            </span>
+            
+        </div>
+
+        <!--Bloque del botón dependiendo de si es agregar nuevo o modificar-->
+        <div class="p-field p-col-12 p-md-3">
+            <button pButton type="button" (click)="onSubmitNew()" class="btn btn-info btn-lg"
+                *ngIf="booleanMensaje else elseblock" [disabled]="contactForm.invalid" label="Agregar"></button>
+        </div>
+        <ng-template #elseblock>
+            <button pButton type="button" (click)="onSubmitModifi()" class="btn btn-info btn-lg"
+                [disabled]="contactForm.invalid" label="Modificar"></button>
+        </ng-template>
+    </form>
+</div>

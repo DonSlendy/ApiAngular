@@ -1,13 +1,30 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { LoginServiceService } from './services/login.service.service';
+
+// Componentes de PrimeNG
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    CommonModule, // Usa CommonModule para las directivas como NgIf y NgFor
+    RouterLink,
+    RouterOutlet,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'ApiAngular';
+export class AppComponent implements OnInit {
+
+  constructor(private loginService: LoginServiceService) { }
+
+  ngOnInit(): void {
+    if (this.loginService.isAuthenticated()) {
+      this.loginService.autoRefreshToken();
+    }
+  }
+
 }

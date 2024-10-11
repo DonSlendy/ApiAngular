@@ -1,0 +1,4 @@
+:host ::ng-deep .p-button{
+    border-radius: 5px;
+    margin: 2.5px;
+}

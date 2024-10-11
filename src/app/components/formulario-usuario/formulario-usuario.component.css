@@ -1,0 +1,7 @@
+:host ::ng-deep .p-message-wrapper .p-message-close{
+    margin-left: auto;
+}
+
+:host ::ng-deep .p-message{
+    margin: 0;
+}

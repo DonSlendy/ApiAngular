@@ -1,0 +1,6 @@
+.contentLogin{
+    margin: 25px;
+}
+:host ::ng-deep .p-message-wrapper .p-message-close{
+    margin-left: auto;
+}

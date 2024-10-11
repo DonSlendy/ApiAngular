@@ -1,0 +1,8 @@
+<app-navbar-component></app-navbar-component>
+
+<div fxLayout="row" fxLayoutAlign>
+    <h1>Bienvenido {{usuario.nombre}}</h1>
+    <h2>Coloca tu nombre abajo para darte la bienvenida</h2>
+    <input type="text" name="nombre" id="nombre" [(ngModel)]="usuario.nombre">
+</div>
+<app-gallery-component></app-gallery-component>

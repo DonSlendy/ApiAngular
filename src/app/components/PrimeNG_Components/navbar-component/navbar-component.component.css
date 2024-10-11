@@ -1,0 +1,53 @@
+/* Estilo para los enlaces de las opciones de navegación */
+:host ::ng-deep .p-menubar .p-menuitem-link {
+    text-decoration: none;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:hover .p-menuitem-text {
+    color: rgb(255, 255, 255);
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:hover .p-menuitem-icon {
+    color: rgb(255, 183, 27);
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:hover {
+    background-color: rgb(105, 112, 112);
+    border-radius: 50px;
+}
+
+:host ::ng-deep .p-menuitem-content:hover{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+:host ::ng-deep .p-menuitem-content{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* Estilo para el ícono del menú hamburguesa */
+:host ::ng-deep .p-menubar .p-menubar-button {
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+:host ::ng-deep .p-menuitem-text {
+    color: #4c4c4c;
+    font-size: 1.5rem;
+}
+
+:host ::ng-deep .p-menuitem-icon {
+    color: rgb(255, 61, 27);
+    font-size: 1.5rem;
+}
+
+:host ::ng-deep ul {
+    background-color: #f9fafb;
+}
+
+:host ::ng-deep .p-menubar {
+    border-radius: 0;
+}
+
+:host ::ng-deep .p-menubar-root-list{
+    margin: 0;
+}

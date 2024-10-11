@@ -1,0 +1,28 @@
+<app-navbar-component></app-navbar-component>
+
+<p-messages></p-messages>
+<table class="table table-hover">
+    <thead class="table-danger">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody class="table-info">
+        @for (item of datosList; track $index) {
+        <tr>
+            <th>{{item.id}}</th>
+            <th>{{item.firstname}}</th>
+            <th>{{item.lastName}}</th>
+            <th>{{item.email}}</th>
+            <th>
+                <p-button label="Editar" severity="warning" [routerLink]="['/datos/modifi',item.id]" />
+                <p-button label="Eliminar" severity="danger" (click)="delete(item)" />
+            </th>
+        </tr>
+        }
+    </tbody>
+</table>
