@@ -3,15 +3,15 @@ import { RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+//PrimeNG
 import { StyleClassModule } from 'primeng/styleclass';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
-import { LoginServiceService } from '../../services/login.service.service';
-
 import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 
+import { LoginServiceService } from '../../services/login.service.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,6 @@ import { MessagesModule } from 'primeng/messages';
 })
 export class LoginComponent implements OnInit {
 
-  private rol: any;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -51,11 +50,16 @@ export class LoginComponent implements OnInit {
       //console.log("Los datos enviados fueron: " + datos["user"] + " " + datos["password"]);
       this.loginService.login(datos['user'], datos['password']).subscribe({
         next: () => {
-          this.rol = localStorage.getItem("authRol");
-          switch (this.rol) {
-            case "ROLE_USER":
-              break;
+          const rol = this.loginService.returnRol();
+          switch (rol) {
             case "ROLE_ADMIN":
+              console.log("Es un administrador");
+              break;
+            case "ROLE_USER":
+              console.log("Es un usuario normal");
+              break;
+            default:
+              console.log("No existe");
               break;
           }
           this.router.navigate(["/inicio"])

@@ -4,7 +4,7 @@
             <img src="./assets/7440841.png" alt="LogoBird" height="50" class="mb-3">
             <div class="text-900 text-3xl font-medium mb-3">Inicio de Sesión</div>
             <span class="text-600 font-medium line-height-3">¿No tienes una cuenta?</span>
-            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">¡Crea una acá!</a>
+            <a [routerLink]="['/nueva-cuenta']" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">¡Crea una acá!</a>
         </div>
         <p-messages></p-messages>
         <form [formGroup]="loginForm">

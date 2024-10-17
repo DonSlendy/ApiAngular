@@ -67,6 +67,22 @@ export class LoginServiceService {
     }
   }
 
+  returnRol(): String {
+    const token = this.getToken();
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const rol = payload.rol;
+      return rol;
+    } else {
+      return "false";
+    }
+  }
+
+  hasRole(rolEsperado: String): boolean {
+    const rol: String = this.returnRol();
+    return rol === rolEsperado;
+  }
+
   isAuthenticated(): boolean {
     const token = this.getToken();
     if (!token) {

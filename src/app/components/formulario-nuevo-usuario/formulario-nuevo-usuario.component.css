@@ -1,0 +1,10 @@
+.contentLogin{
+    margin: 25px;
+}
+:host ::ng-deep .p-message-wrapper .p-message-close{
+    margin-left: auto;
+}
+
+::ng-deep body{
+    background-color: rgb(196, 228, 219);
+}

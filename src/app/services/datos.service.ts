@@ -13,13 +13,24 @@ export class DatosService {
   constructor(private http: HttpClient) { }
 
   private getHeaders(): HttpHeaders {
+
     const token = localStorage.getItem("authToken");
-    if (localStorage.getItem("authRol") == "ROLE_ADMIN") {
-      this.API_URL = "http://localhost:8080/api/admin";
+
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const role = payload.role;
+
+      if (role === "ROLE_ADMIN") {
+        this.API_URL = "http://localhost:8080/api/admin";
+      } else {
+        this.API_URL = "http://localhost:8080/api/peti"
+      }
+
     } else {
-      this.API_URL = "http://localhost:8080/api/peti";
+      console.error("No se encontró el token")
     }
-    console.log(this.API_URL);
+
+
     return new HttpHeaders({
       "Authorization": `Bearer ${token}`
     });

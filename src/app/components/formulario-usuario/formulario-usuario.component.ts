@@ -10,7 +10,6 @@ import { FormValidator } from './form-usuario.validator';
 //AngularNG
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { FieldsetModule } from 'primeng/fieldset';
 import { ButtonModule } from 'primeng/button';
 import { NavbarComponentComponent } from '../PrimeNG_Components/navbar-component/navbar-component.component';
 
@@ -24,7 +23,6 @@ import { MessagesModule } from 'primeng/messages';
     ReactiveFormsModule,
     FloatLabelModule,
     InputTextModule,
-    FieldsetModule,
     ButtonModule,
     CommonModule,
     MessagesModule,
